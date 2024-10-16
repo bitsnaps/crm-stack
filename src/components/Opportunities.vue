@@ -49,10 +49,10 @@ async function handleCreateOpportunity() {
       <n-button @click="showForm = !showForm">{{ showForm ? 'Hide Form' : 'Add Opportunity' }}</n-button>
       <n-form v-if="showForm" @submit.prevent="handleCreateOpportunity">
         <n-form-item label="Name">
-          <n-input v-model:value="newOpportunity.name" />
+          <n-input v-model="newOpportunity.name" />
         </n-form-item>
         <n-form-item label="Amount">
-          <n-input v-model:value="newOpportunity.amount" type="number" />
+          <n-input v-model="newOpportunity.amount" />
         </n-form-item>
         <n-form-item label="Stage">
           <n-select v-model:value="newOpportunity.stage" :options="stageOptions" />

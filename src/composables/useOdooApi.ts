@@ -10,7 +10,7 @@ export function useOdooApi() {
     try {
       const response = await axios.get(`${API_URL}/dashboard`)
       return response.data
-    } catch (err) {
+    } catch (err: any) {
       error.value = err
       console.error('Error fetching dashboard data:', err)
       return { totalContacts: 0, totalOpportunities: 0, totalRevenue: 0 }
@@ -21,18 +21,18 @@ export function useOdooApi() {
     try {
       const response = await axios.get(`${API_URL}/contacts`)
       return response.data
-    } catch (err) {
+    } catch (err: any) {
       error.value = err
       console.error('Error fetching contacts:', err)
       return []
     }
   }
 
-  async function createContact(contact) {
+  async function createContact(contact: any) {
     try {
       const response = await axios.post(`${API_URL}/contacts`, contact)
       return response.data
-    } catch (err) {
+    } catch (err: any) {
       error.value = err
       console.error('Error creating contact:', err)
       throw err
@@ -43,18 +43,18 @@ export function useOdooApi() {
     try {
       const response = await axios.get(`${API_URL}/opportunities`)
       return response.data
-    } catch (err) {
+    } catch (err: any) {
       error.value = err
       console.error('Error fetching opportunities:', err)
       return []
     }
   }
 
-  async function createOpportunity(opportunity) {
+  async function createOpportunity(opportunity: any) {
     try {
       const response = await axios.post(`${API_URL}/opportunities`, opportunity)
       return response.data
-    } catch (err) {
+    } catch (err: any) {
       error.value = err
       console.error('Error creating opportunity:', err)
       throw err
