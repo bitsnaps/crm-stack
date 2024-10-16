@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Dashboard from './components/Dashboard.vue'
-import Contacts from './components/Contacts.vue'
-import Opportunities from './components/Opportunities.vue'
+import Dashboard from '../components/Dashboard.vue'
+import Contacts from '../components/Contacts.vue'
+import Opportunities from '../components/Opportunities.vue'
 
 const router = createRouter({
   history: createWebHistory(),
