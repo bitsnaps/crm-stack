@@ -5,12 +5,13 @@ import { useOdooApi } from '../composables/useOdooApi'
 
 const { fetchDashboardData } = useOdooApi()
 
-const totalContacts = ref(0)
-const totalOpportunities = ref(0)
-const totalRevenue = ref(0)
+const totalContacts = ref<number>(0)
+const totalOpportunities = ref<number>(0)
+const totalRevenue = ref<number>(0)
 
 onMounted(async () => {
   const dashboardData = await fetchDashboardData()
+  console.log(dashboardData);
   totalContacts.value = dashboardData.totalContacts
   totalOpportunities.value = dashboardData.totalOpportunities
   totalRevenue.value = dashboardData.totalRevenue

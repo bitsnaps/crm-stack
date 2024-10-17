@@ -5,10 +5,20 @@ import { useOdooApi } from '../composables/useOdooApi'
 
 const { fetchContacts, createContact } = useOdooApi()
 
-const contacts = ref([])
-const loading = ref(true)
-const showForm = ref(false)
-const newContact = ref({ name: '', email: '', phone: '' })
+interface Contact {
+  name: string, 
+  email: string, 
+  phone: string
+}
+
+const contacts = ref<Contact[]>([])
+const loading = ref<boolean>(true)
+const showForm = ref<boolean>(false)
+const newContact = ref<Contact>({
+   name: '', 
+   email: '', 
+   phone: '' 
+  })
 
 const columns = [
   { title: 'Name', key: 'name' },
@@ -37,7 +47,7 @@ async function handleCreateContact() {
 <template>
   <div>
     <h1>Contacts</h1>
-    <n-space vertical>
+    <!-- <n-space vertical>
       <n-button @click="showForm = !showForm">{{ showForm ? 'Hide Form' : 'Add Contact' }}</n-button>
       <n-form v-if="showForm" @submit.prevent="handleCreateContact">
         <n-form-item label="Name">
@@ -52,6 +62,6 @@ async function handleCreateContact() {
         <n-button type="primary" attr-type="submit">Create Contact</n-button>
       </n-form>
       <n-data-table :columns="columns" :data="contacts" :loading="loading" />
-    </n-space>
+    </n-space> -->
   </div>
 </template>

@@ -1,7 +1,7 @@
 import { ref } from 'vue'
 import axios from 'axios'
 
-const API_URL = '/.netlify/functions/odoo-api'
+const API_URL = '/api/odoo-api'
 
 export function useOdooApi() {
   const error = ref(null)

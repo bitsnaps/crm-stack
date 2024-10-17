@@ -2,8 +2,9 @@
 import { NConfigProvider, NMessageProvider, NDialogProvider, NNotificationProvider, NLayout, NLayoutSider, NMenu, NLayoutHeader, NLayoutContent } from 'naive-ui'
 import { h, ref } from 'vue'
 import { RouterLink, RouterView } from 'vue-router'
+import type { MenuOption } from 'naive-ui'
 
-const menuOptions = [
+const menuOptions: MenuOption[] = [
   {
     label: () => h(RouterLink, { to: '/' }, { default: () => 'Dashboard' }),
     key: 'dashboard',
@@ -21,7 +22,7 @@ const menuOptions = [
   }
 ]
 
-const activeKey = ref('dashboard')
+const activeKey = ref<string | null>('dashboard')
 </script>
 
 <template>
@@ -29,7 +30,7 @@ const activeKey = ref('dashboard')
     <n-message-provider>
       <n-dialog-provider>
         <n-notification-provider>
-          <n-layout>
+          <n-layout has-sider>
             <n-layout-sider bordered>
               <n-menu :options="menuOptions" v-model:value="activeKey" />
             </n-layout-sider>

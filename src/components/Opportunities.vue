@@ -31,6 +31,7 @@ onMounted(async () => {
 async function loadOpportunities() {
   loading.value = true
   opportunities.value = await fetchOpportunities()
+  console.log(opportunities.value)
   loading.value = false
 }
 
